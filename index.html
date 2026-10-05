@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>d/36415</title>
+    <style>
+      body, html{
+        margin: 0;
+        height: 100vh;
+        background: #000;
+        overflow: hidden;
+        font-family: monospace;
+        font-family: monospace;
+        text-align: center;
+      }
+      canvas{
+        position: absolute;
+        left: 50%;
+        top: 50vh;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+      }
+      canvas:focus{
+        outline: none;
+      }
+      video{
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="c"></canvas>
+    <video
+      muted="true"
+      loop="true"
+      autoplay="true"
+      src="https://i.imgur.com/vyfx09y.mp4"
+    ></video>
+    <script>
+
+      var el = document.querySelectorAll('video')[0]
+      el.playbackRate = el.defaultPlaybackRate = 1
+          
+      c = document.querySelector('#c')
+      c.tabIndex = 0
+      x = c.getContext('2d')
+      c.width = 1920
+      c.height = 1080
+
+      C = Math.cos
+      S = Math.sin
+      t = 0
+      T = Math.tan
+
+      var Rn = Math.random
+      var p, q, d
+
+      rsz = window.onresize = () =>{
+        let b = document.body
+        let margin = 5
+        let n
+        let d = .5625
+        //c.height = c.width * d
+        if(b.clientHeight/b.clientWidth > d){
+          c.style.width = `${(n=b.clientWidth) - margin*2}px`
+          c.style.height = `${n*d - margin*2}px`
+        }else{
+          c.style.height = `${(n=b.clientHeight) - margin*2}px`
+          c.style.width = `${n/d - margin*2}px`
+        }
+      }
+      rsz()
+
+      Draw = () => {
+        
+        c.style.filter=`invert(`
+        for(i=1e4;i--;x.fillRect(C(K=T(i/t/9)+a*90)*990*a+960,540+S(K)*990*a,t<2,T(a*a/6+5.3)%.2))a=i*i/t%3-2
+        
+        el.style.opacity = Math.min(1, Math.max(0, (.3+C(t)))*2)
+        
+        t+= 1/60
+        requestAnimationFrame(Draw)
+      }
+      Draw()
+
+    </script>
+  </body>
+</html>
